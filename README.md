@@ -45,30 +45,38 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/ndarray-base-data-buffer
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var data = require( '@stdlib/ndarray-base-data-buffer' );
+data = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-data-buffer@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var data = require( 'path/to/vendor/umd/ndarray-base-data-buffer/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-data-buffer@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.data;
+})();
+</script>
 ```
 
 #### data( x )
@@ -107,9 +115,14 @@ var out = data( x );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var zeros = require( '@stdlib/ndarray-zeros' );
-var data = require( '@stdlib/ndarray-base-data-buffer' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-data-buffer@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {
 
 // Create a 'float64' array...
 var opts = {
@@ -150,6 +163,11 @@ x = zeros( [ 2, 2 ], opts );
 
 buf = data( x );
 // returns <Int32Array>
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -241,9 +259,9 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/ndarray-base-data-buffer/main/LICENSE
 
-[@stdlib/ndarray/base/ctor]: https://github.com/stdlib-js/ndarray-base-ctor
+[@stdlib/ndarray/base/ctor]: https://github.com/stdlib-js/ndarray-base-ctor/tree/umd
 
-[@stdlib/ndarray/base/buffer]: https://github.com/stdlib-js/ndarray-base-buffer
+[@stdlib/ndarray/base/buffer]: https://github.com/stdlib-js/ndarray-base-buffer/tree/umd
 
 </section>
 
